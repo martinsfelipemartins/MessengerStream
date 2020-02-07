@@ -1,30 +1,49 @@
 package br.com.martins.messengerstream
 
+import android.content.Context
 import android.support.v7.widget.RecyclerView
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import kotlinx.android.synthetic.main.streamer_item.view.*
 
-class HomeAdapter(private val streamerModel: List<StreamerModel> ): RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
+class HomeAdapter(private val streamersList: List<StreamerModel>, private val context: Context) :
+    RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
 
 
 
 
     class ViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView) {
-        fun bindView (streamerModel: StreamerModel){
+
+
+        fun bindView(streamer: StreamerModel) {
+
+            val profilePicture = itemView.image_view_profile_list
+            val nameStreamer = itemView.name_streamer_list
+            val followersNumber = itemView.number_followers_list
+
+            profilePicture.setImageResource(streamer.picture)
+            nameStreamer.text = streamer.name
+            followersNumber.text = streamer.followers
+
 
         }
 
     }
 
+    //retorna o item já setado pelo viewholder
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): HomeAdapter.ViewHolder {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val view = LayoutInflater.from(context).inflate(R.layout.streamer_item, parent, false)
+        return ViewHolder(view)
     }
 
     override fun getItemCount(): Int {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return streamersList.size
     }
 
-    override fun onBindViewHolder(holder: HomeAdapter.ViewHolder?, position: Int) {val streamers = streamerModel[position]
+    //recebe o viewholder e a posição da lista
+    override fun onBindViewHolder(holder: ViewHolder?, position: Int) {
+        val streamers = streamersList[position]
         holder?.let {
             it.bindView(streamers)
         } }

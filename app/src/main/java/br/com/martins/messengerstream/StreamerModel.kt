@@ -1,4 +1,4 @@
 package br.com.martins.messengerstream
 
-class StreamerModel (picture: Int, name:String, btnMessage:String
+class StreamerModel (val picture: Int, val name:String,val followers:String
 )
