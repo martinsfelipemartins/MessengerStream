@@ -7,8 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.streamer_item.view.*
 
-class HomeAdapter(private val streamersList: List<StreamerModel>, private val context: Context) :
-    RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
+class OurStreamersHomeAdapter(private val streamersList: List<StreamerModel>, private val context: Context) :
+    RecyclerView.Adapter<OurStreamersHomeAdapter.ViewHolder>() {
 
 
 
@@ -32,7 +32,7 @@ class HomeAdapter(private val streamersList: List<StreamerModel>, private val co
     }
 
     //retorna o item já setado pelo viewholder
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): HomeAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): OurStreamersHomeAdapter.ViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.streamer_item, parent, false)
         return ViewHolder(view)
     }
