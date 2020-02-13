@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.streamer_item.view.*
 
-class OurStreamersHomeAdapter(private val streamersList: List<StreamerModel>, private val context: Context) :
+class OurStreamersHomeAdapter(private val streamersList: List<StreamerModel>, private val context: Context?) :
     RecyclerView.Adapter<OurStreamersHomeAdapter.ViewHolder>() {
 
 

@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import kotlinx.android.synthetic.main.new_streamers_item.view.*
 import kotlinx.android.synthetic.main.streamer_item.view.*
 
-class NewStreamersAdapterHorizontal(private val streamersList: List<StreamerNew>, private val context: Context) :
+class NewStreamersAdapterHorizontal(private val streamersList: List<StreamerNew>, private val context: Context?) :
     RecyclerView.Adapter<NewStreamersAdapterHorizontal.ViewHolder>() {
 
 
