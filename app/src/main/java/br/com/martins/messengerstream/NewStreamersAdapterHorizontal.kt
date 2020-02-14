@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.new_streamers_item.view.*
-import kotlinx.android.synthetic.main.streamer_item.view.*
 
 class NewStreamersAdapterHorizontal(private val streamersList: List<StreamerNew>, private val context: Context?) :
     RecyclerView.Adapter<NewStreamersAdapterHorizontal.ViewHolder>() {
@@ -14,7 +13,7 @@ class NewStreamersAdapterHorizontal(private val streamersList: List<StreamerNew>
 
 
 
-    class ViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView) {
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
 
         fun bindView(streamer: StreamerNew) {
@@ -32,7 +31,7 @@ class NewStreamersAdapterHorizontal(private val streamersList: List<StreamerNew>
     }
 
     //retorna o item já setado pelo viewholder
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): NewStreamersAdapterHorizontal.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewStreamersAdapterHorizontal.ViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.new_streamers_item, parent, false)
         return ViewHolder(view)
     }
@@ -42,7 +41,7 @@ class NewStreamersAdapterHorizontal(private val streamersList: List<StreamerNew>
     }
 
     //recebe o viewholder e a posição da lista
-    override fun onBindViewHolder(holder: ViewHolder?, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val streamers = streamersList[position]
         holder?.let {
             it.bindView(streamers)
