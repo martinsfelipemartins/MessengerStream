@@ -9,8 +9,8 @@ import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment() {
     val streamerNew: StreamerNew? = null
-    val streamerList = ArrayList<StreamerModel>()
-    val streamerListHorizontal = ArrayList<StreamerNew>()
+    var streamerList = ArrayList<StreamerModel>()
+    private val streamerListHorizontal = ArrayList<StreamerNew>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -22,6 +22,8 @@ class HomeFragment : Fragment() {
         configRecyclerViewHorizontal()
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false)
+
+
     }
 
 
@@ -35,8 +37,11 @@ class HomeFragment : Fragment() {
         streamerList.add(StreamerModel((R.drawable.josesartori), "Jukera", "123k"))
         streamerList.add(StreamerModel((R.drawable.josesartori), "Jukera", "123k"))
         streamerList.add(StreamerModel((R.drawable.josesartori), "Jukera", "123k"))
-        recyclerview_streamers_ours.layoutManager = LinearLayoutManager(context)
         recyclerview_streamers_ours.adapter = OurStreamersHomeAdapter(streamerList, context)
+        recyclerview_streamers_ours.layoutManager = LinearLayoutManager(context)
+        recyclerview_streamers_live_horizontal.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        recyclerview_streamers_live_horizontal.adapter = NewStreamersAdapterHorizontal(streamerListHorizontal, context)
+
 
 
     }
@@ -50,8 +55,8 @@ class HomeFragment : Fragment() {
         streamerListHorizontal.add(StreamerNew((R.drawable.josesartori), "name"))
         streamerListHorizontal.add(StreamerNew((R.drawable.josesartori), "name"))
         streamerListHorizontal.add(StreamerNew((R.drawable.josesartori), "name"))
-        recyclerview_streamers_live.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        recyclerview_streamers_live.adapter = NewStreamersAdapterHorizontal(streamerListHorizontal, context)
+        recyclerview_streamers_live_horizontal.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        recyclerview_streamers_live_horizontal.adapter = NewStreamersAdapterHorizontal(streamerListHorizontal, context)
 
 
     }
