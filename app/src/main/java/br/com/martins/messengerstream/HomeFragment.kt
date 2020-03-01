@@ -18,13 +18,19 @@ class HomeFragment : Fragment() {
     ): View? {
         setHasOptionsMenu(true)
 
-        configRecyclerView()
-        configRecyclerViewHorizontal()
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false)
 
 
     }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        configRecyclerView()
+        configRecyclerViewHorizontal()
+    }
+
 
 
 
